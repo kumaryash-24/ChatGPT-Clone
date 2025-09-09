@@ -1,27 +1,243 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* app/globals.css */
 
+/* Import Bootstrap CSS */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* Custom CSS Variables and Global Styles */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light Theme Defaults (for Bootstrap components not explicitly styled) */
+  --bs-body-bg: #ffffff; /* White background */
+  --bs-body-color: #000000; /* Black text */
+
+  /* Custom Colors to match Tailwind's original look or image */
+  --color-gray-50: #f9fafb;
+  --color-gray-300: #d1d5db;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-purple-700: #6d28d9;
+  --color-purple-800: #5b21b6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Specific Dark Theme for ChatGPT UI (mimicking Tailwind's dark class structure) */
+.dark-theme-bg-202123 {
+  background-color: #202123 !important;
+  color: #e0e0e0 !important; /* Light text */
 }
 
+.dark-theme-bg-343541 {
+  background-color: #343541 !important;
+  color: #e0e0e0 !important; /* Light text */
+}
+
+.dark-border-gray-700 {
+  border-color: #4a4a4a !important;
+}
+
+.dark-text-gray-200 {
+  color: #e0e0e0 !important;
+}
+
+.dark-text-gray-400 {
+  color: #9ca3af !important;
+}
+
+.dark-text-gray-500 {
+  color: #6b7280 !important;
+}
+
+
+/* General Body/Font Styles */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif; /* Keep Geist fonts if still desired */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Utility Classes to replicate Tailwind's sizing */
+.min-h-screen {
+  min-height: 100vh;
+}
+.h-screen {
+  height: 100vh;
+}
+.w-full {
+  width: 100%;
+}
+.max-w-md {
+  max-width: 28rem; /* Equivalent to Tailwind's max-w-md */
+}
+.max-w-2xl {
+  max-width: 42rem; /* Equivalent to Tailwind's max-w-2xl */
+}
+.max-w-3xl {
+  max-width: 48rem; /* Equivalent to Tailwind's max-w-3xl */
+}
+.h-12 {
+  height: 3rem; /* 48px */
+}
+.h-10 {
+  height: 2.5rem; /* 40px */
+}
+.h-9 {
+  height: 2.25rem; /* 36px */
+}
+.h-11 {
+  height: 2.75rem; /* 44px */
+}
+.w-10 {
+  width: 2.5rem; /* 40px */
+}
+.w-8 {
+  width: 2rem; /* 32px */
+}
+.h-8 {
+  height: 2rem; /* 32px */
+}
+.w-7 {
+  width: 1.75rem; /* 28px */
+}
+.h-7 {
+  height: 1.75rem; /* 28px */
+}
+.w-5 {
+  width: 1.25rem; /* 20px */
+}
+.h-5 {
+  height: 1.25rem; /* 20px */
+}
+.h-4 {
+  height: 1rem; /* 16px */
+}
+.w-4 {
+  width: 1rem; /* 16px */
+}
+.p-0_5 { /* Custom padding for px-0.5 like in Tailwind */
+  padding-left: 0.125rem !important;
+  padding-right: 0.125rem !important;
+}
+.py-0_5 {
+  padding-top: 0.125rem !important;
+  padding-bottom: 0.125rem !important;
+}
+
+
+/* Custom styles for specific components */
+.btn-outline-custom {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  color: var(--color-black);
+}
+.btn-outline-custom:hover {
+  background-color: var(--color-gray-50);
+  border-color: var(--color-gray-400); /* Slightly darker border on hover */
+  color: var(--color-black);
+}
+
+.input-login {
+  border: 2px solid var(--color-blue-500);
+  border-radius: 9999px; /* rounded-full */
+  background-color: var(--color-white);
+  color: var(--color-black);
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+}
+.input-login::placeholder {
+  color: var(--color-blue-500);
+}
+.input-login:focus {
+  border-color: var(--color-blue-600);
+  box-shadow: none; /* Remove default Bootstrap focus shadow */
+  outline: none;
+}
+
+.btn-black {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+.btn-black:hover {
+  background-color: var(--color-gray-800);
+  color: var(--color-white);
+}
+
+.btn-purple {
+  background-color: var(--color-purple-700);
+  color: var(--color-white);
+}
+.btn-purple:hover {
+  background-color: var(--color-purple-800);
+  color: var(--color-white);
+}
+
+.text-gray-600 { /* For description text */
+  color: var(--color-gray-600) !important;
+}
+
+.text-gray-500 { /* For OR text */
+  color: var(--color-gray-500) !important;
+}
+
+.text-blue-500 {
+  color: var(--color-blue-500) !important;
+}
+
+.text-blue-600 {
+  color: var(--color-blue-600) !important;
+}
+
+.text-red-500 {
+  color: #ef4444 !important; /* Tailwind red-500 */
+}
+
+/* Chat UI specific elements */
+.chat-main-bg {
+  background-color: #343541 !important;
+}
+.chat-sidebar-bg {
+  background-color: #202123 !important;
+}
+.chat-border-gray-700 {
+  border-color: #4a4a4a !important;
+}
+
+.chat-bubble-user {
+  background-color: var(--color-blue-500) !important;
+  color: var(--color-white) !important;
+  border-radius: 0.75rem; /* rounded-xl */
+}
+.chat-bubble-assistant {
+  background-color: #f1f5f9 !important; /* light gray from image */
+  color: var(--color-gray-800) !important;
+  border-radius: 0.75rem; /* rounded-xl */
+}
+
+.chat-input-wrapper {
+  background-color: #202123 !important;
+  border: 1px solid #4a4a4a !important;
+  border-radius: 0.75rem; /* rounded-xl */
+}
+.chat-input {
+  background-color: transparent !important;
+  border: none !important;
+  color: #e0e0e0 !important;
+  outline: none !important;
+}
+.chat-input::placeholder {
+  color: #6b7280 !important; /* gray-500 */
+}
+
+/* Custom scrollbar hide */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
