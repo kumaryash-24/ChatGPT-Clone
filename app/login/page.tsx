@@ -9,7 +9,7 @@ import { getRegisteredUsers, getCurrentUser, saveCurrentUser, User } from '@/lib
               
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');               
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoginFlow, setIsLoginFlow] = useState(false);
